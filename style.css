@@ -123,16 +123,19 @@ body {
 .services-grid {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Pozwala na zawijanie kafelków w mniejszych rozdzielczościach */
+    flex-wrap: wrap; 
+    padding: 1%; /* Dodajemy padding do grida */
 }
 
 .service {
-    width: 32%; /* Szerokość kafelka - 32% dla 3 kafelków w rzędzie */
-    margin-bottom: 2%; /* Odstęp między kafelkami */
-    padding-bottom: 32%; /* Utrzymuje proporcje kwadratu */
+    width: 32%; 
+    margin-bottom: 0; /* Usuwamy margines */
+    padding-bottom: 32%; 
     background-size: cover;
     background-position: center;
-    position: relative; /* Pozycjonowanie tekstu wewnątrz kafelka */
+    position: relative; 
+    overflow: hidden; /* Ukrywamy wszystko co wychodzi poza kafelek */
+    border-radius: 10px; /* Dodajemy zaokrąglone rogi */
 }
 
 .service-text {
@@ -140,8 +143,41 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Przyciemnienie tła tekstu */
+    background-color: rgba(0, 0, 0, 0.5); 
     color: white;
     padding: 1em;
     text-align: center;
+}
+
+.service:hover {
+    transform: scale(1.1); /* Powiększenie kafelka po najechaniu */
+    transition: transform 0.3s ease; /* Płynne przejście */
+}
+
+/* Style dla popup'a */
+.popup {
+    display: none; /* Domyślnie ukryte */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
 }
