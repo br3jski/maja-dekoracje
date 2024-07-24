@@ -165,18 +165,18 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    overflow-y: auto; /* Dodajemy przewijanie, jeśli zawartość jest zbyt długa */
+    z-index: 1000;
+    overflow-y: auto;
 }
 
 .popup-content {
     background-color: #fff;
-    margin: 5% auto;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 5px;
     max-width: 600px;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dodajemy cień dla lepszego efektu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 body.popup-open {

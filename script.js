@@ -16,25 +16,28 @@ setInterval(() => {
 // Funkcja do wyśrodkowania popup'a
 function centerPopup(popupElement) {
     const windowHeight = window.innerHeight;
-    const popupHeight = popupElement.clientHeight;
-    const popupTop = Math.max((windowHeight - popupHeight) / 2, 0);
+    const popupHeight = popupElement.querySelector('.popup-content').offsetHeight;
+    const popupTop = Math.max((windowHeight - popupHeight) / 2, 20); // Minimum 20px od góry
 
-    popupElement.style.top = `${popupTop}px`;
+    popupElement.querySelector('.popup-content').style.marginTop = `${popupTop}px`;
 }
 
-// Funkcja do przełączania klasy popup-open na body
-function toggleBodyScrolling(isPopupOpen) {
-    if (isPopupOpen) {
-        document.body.classList.add('popup-open');
-    } else {
-        document.body.classList.remove('popup-open');
-    }
+// Funkcja do otwierania popupu
+function openPopup(popup) {
+    closeAllPopups(); // Zamknij wszystkie otwarte popupy
+    popup.style.display = 'block';
+    centerPopup(popup);
 }
 
 // Funkcja do zamykania popupu
 function closePopup(popup) {
     popup.style.display = 'none';
-    toggleBodyScrolling(false);
+}
+
+// Funkcja do zamykania wszystkich popupów
+function closeAllPopups() {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(popup => closePopup(popup));
 }
 
 // --- Usługi - popup ---
@@ -47,19 +50,11 @@ const servicePopupCloseButton = servicePopup.querySelector('.close-button');
 function openServicePopup(service) {
     popupTitle.textContent = service.dataset.serviceTitle;
     popupDescription.textContent = service.dataset.serviceDescription;
-    centerPopup(servicePopup);
-    servicePopup.style.display = 'block';
-    toggleBodyScrolling(true);
+    openPopup(servicePopup);
 }
 
 services.forEach(service => {
-    service.addEventListener('click', () => {
-        if (servicePopup.style.display === 'block') {
-            closePopup(servicePopup);
-        } else {
-            openServicePopup(service);
-        }
-    });
+    service.addEventListener('click', () => openServicePopup(service));
 });
 
 servicePopupCloseButton.addEventListener('click', () => closePopup(servicePopup));
@@ -75,19 +70,7 @@ const openContactFormButton = document.getElementById('open-contact-form');
 const contactFormPopup = document.getElementById('contact-form-popup');
 const contactFormCloseButton = contactFormPopup.querySelector('.close-button');
 
-function openContactFormPopup() {
-    centerPopup(contactFormPopup);
-    contactFormPopup.style.display = 'block';
-    toggleBodyScrolling(true);
-}
-
-openContactFormButton.addEventListener('click', () => {
-    if (contactFormPopup.style.display === 'block') {
-        closePopup(contactFormPopup);
-    } else {
-        openContactFormPopup();
-    }
-});
+openContactFormButton.addEventListener('click', () => openPopup(contactFormPopup));
 
 contactFormCloseButton.addEventListener('click', () => closePopup(contactFormPopup));
 
@@ -114,10 +97,8 @@ contactForm.addEventListener('submit', (event) => {
 
 // Dostosowanie popupu przy zmianie rozmiaru okna
 window.addEventListener('resize', () => {
-    if (servicePopup.style.display === 'block') {
-        centerPopup(servicePopup);
-    }
-    if (contactFormPopup.style.display === 'block') {
-        centerPopup(contactFormPopup);
+    const openPopup = document.querySelector('.popup[style="display: block;"]');
+    if (openPopup) {
+        centerPopup(openPopup);
     }
 });
