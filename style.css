@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Przykładowa czcionka z Material Design */
+    margin: 0;
+    background-color: #c9c4be;
+}
+
+/* Menu */
+.menu {
+    background-color: #0b1717;
+    color: #c9c4be;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px; /* Dostosuj wysokość loga */
+    margin-right: 10px; /* Odstęp między logo a tekstem */
+    vertical-align: middle; /* Wyrównaj logo w pionie */
+}
+
+.logo {
+    font-weight: bold;
+    text-decoration: none;
+    color: #c9c4be;
+}
+
+.menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-items li {
+    margin-left: 2em;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: #c9c4be;
+}
+
+/* Przycisk menu dla urządzeń mobilnych */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsywność - menu mobilne */
+@media screen and (max-width: 768px) {
+    .menu-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #0b1717;
+        width: 200px;
+    }
+
+    .menu-items li {
+        margin: 0;
+        padding: 1em;
+        border-bottom: 1px solid #333;
+    }
+
+    #menu-toggle:checked ~ .menu-items {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+#slider {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ustaw wysokość slidera */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Początkowo ukryj slajdy */
+    background-blend-mode: overlay; /* Włącz mieszanie tła */
+    /* background-color: rgba(11, 23, 23, 0.6); /* Przyciemnienie z kolorem #0b1717 i przezroczystością 30% */
+    background-color: rgba(201, 196, 190, 0.6); /* Przyciemnienie z kolorem #0b1717 i przezroczystością 30% */
+    
+}
+
+.slide.active {
+    opacity: 1; /* Pokaż aktywny slajd */
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #0b1717; /* Ustaw kolor tekstu */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Pozwala na zawijanie kafelków w mniejszych rozdzielczościach */
+}
+
+.service {
+    width: 32%; /* Szerokość kafelka - 32% dla 3 kafelków w rzędzie */
+    margin-bottom: 2%; /* Odstęp między kafelkami */
+    padding-bottom: 32%; /* Utrzymuje proporcje kwadratu */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Pozycjonowanie tekstu wewnątrz kafelka */
+}
+
+.service-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Przyciemnienie tła tekstu */
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
