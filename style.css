@@ -120,6 +120,8 @@ body {
     margin-bottom: 2em;
 }
 
+
+/* USŁUGI */
 .services-grid {
     display: flex;
     justify-content: space-between;
@@ -180,4 +182,67 @@ body {
     right: 15px;
     font-size: 20px;
     cursor: pointer;
+}
+
+
+/* CENNIK */
+.price-table {
+    width: 80%;
+    margin: 2em auto;
+    border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+    border: 1px solid #ddd;
+    padding: 1em;
+    text-align: left;
+}
+
+.price-table th {
+    background-color: #f5f5f5;
+}
+
+
+/* Kontakt */
+
+.contact-info {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
+.contact-option {
+    text-align: center;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+
+.contact-icon {
+    font-size: 3em;
+    color: #deaa19;
+}
+
+/* Style formularza w popup'ie */
+#contact-form-popup .form-group {
+    margin-bottom: 1em;
+}
+
+#contact-form-popup label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#contact-form-popup input,
+#contact-form-popup textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }

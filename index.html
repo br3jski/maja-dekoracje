@@ -13,7 +13,7 @@
     <header>
         <nav class="menu">
             <a href="#" class="logo">
-                <img src="media/majabg.png" alt="Maja-Dekoracje Logo" class="logo-img">
+                <img src="media/header.png" alt="Maja-Dekoracje Logo" class="logo-img">
                 Maja-Dekoracje
             </a>
             <input type="checkbox" id="menu-toggle">
@@ -72,9 +72,84 @@
                 <p id="popup-description"></p>
             </div>
         </div>
+    </div> <br>
+    <div id="cennik">
+        <h2 class="section-title">Cennik</h2>
+    
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Usługa</th>
+                    <th>Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Usługi Minikoparką</td>
+                    <td>od 150 zł/h</td>
+                </tr>
+                <tr>
+                    <td>Brukarstwo</td>
+                    <td>od 80 zł/m<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td>Konstrukcje Drewniane</td>
+                    <td>Indywidualna wycena</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <p class="contact-info">
+            Kwoty netto. <br> Jeśli potrzebujesz dokładnej wyceny, <a href="#kontakt">skontaktuj się z nami</a>.
+        </p>
     </div>
-    <div id="cennik"></div>
-    <div id="kontakt"></div>
+    <div id="kontakt">
+        <h2 class="section-title">Kontakt</h2>
+    
+        <div class="contact-options">
+            <div class="contact-option">
+                <i class="material-icons contact-icon">phone</i>
+                <p><a href="tel:">+48 123 456 789</a></p> </div>
+            <div class="contact-option">
+                <i class="material-icons contact-icon">email</i>
+                <p><a href="mailto:">kontakt@example.com</a></p>
+            </div>
+            <div class="contact-option" id="open-contact-form">
+                <i class="material-icons contact-icon">message</i>
+                <p>Formularz kontaktowy</p>
+            </div>
+        </div>
+    
+        <div id="contact-form-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-button">&times;</span>
+                <h2>Formularz kontaktowy</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Imię:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numer telefonu:</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adres e-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Treść zapytania:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="captcha">Ile to jest 2 + 2?</label>
+                        <input type="text" id="captcha" name="captcha" required>
+                    </div>
+                    <button type="submit">Wyślij</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

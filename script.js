@@ -30,3 +30,15 @@ services.forEach(service => {
 closeButton.addEventListener('click', () => {
     popup.style.display = 'none';
 });
+
+const openContactFormButton = document.getElementById('open-contact-form');
+const contactFormPopup = document.getElementById('contact-form-popup');
+const contactFormCloseButton = contactFormPopup.querySelector('.close-button');
+
+openContactFormButton.addEventListener('click', () => {
+    contactFormPopup.style.display = 'block';
+});
+
+contactFormCloseButton.addEventListener('click', () => {
+    contactFormPopup.style.display = 'none';
+});
